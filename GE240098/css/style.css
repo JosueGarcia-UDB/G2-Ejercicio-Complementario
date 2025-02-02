@@ -1,0 +1,935 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Chakra Petch", sans-serif;
+}
+a{
+  text-decoration: none;
+}
+/* Estilos generales para el header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #191919;
+  padding: 10px 20px;
+  position: relative;
+  height: 80px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo > a{
+  display: flex;
+  align-items: center;
+}
+.logo-title {
+  font-weight: 800;
+  font-size: 35px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f39c12; 
+}
+.header img {
+  width: 100px;
+  height: 70px;
+  object-fit: cover;
+}
+.header nav {
+  margin-right: 20px;
+}
+.list {
+  display: flex;
+  gap: 20px;
+}
+.item-list {
+  list-style: none;
+}
+
+.item-list a {
+  display: block;
+  color: #000;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.item-list a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f39c12;
+  transition: all 0.3s ease;
+}
+.item-list a:hover::before {
+  width: 100%;
+}
+.item-list a:hover {
+  color: #f39c12; 
+  transform: scale(1.1);
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: #f39c12;
+  position: absolute;
+  right: 20px;
+}
+.menu-toggle img{
+  width: 30px;
+  height: 30px;
+}
+
+/* Estilos de index */
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.bannergame {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.bannergame.first {
+  height: calc(100vh - 80px);
+}
+.bannergame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  padding: 20px 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+.window h1 {
+  margin: 0;
+  font-size: 3em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.window .description {
+  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.bannergame button a{
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.bannergame button a {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s ease;
+  box-shadow: 1px -1px 4px #ffffff;
+}
+.bannergame button a:hover {
+  border: 1px solid white;
+  box-shadow: 1px -1px 7px #ffffff;
+}
+
+
+/* Marquee con tags de los juegos 
+
+*/
+.marquee {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-content {
+  animation: marquee 25s linear infinite;
+}
+.marquee-content span {
+  color: #fff;
+  font-size: 18px;
+  padding-left: 70px;
+}
+.marquee-content span:first-child {
+  padding-left: 0;
+}
+@keyframes marquee {
+  0% { 
+    transform: translateX(100%); 
+  }
+  100% { 
+    transform: translateX(-100%); 
+  }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  .bannergame.first {
+    height: 660px;
+  }
+  .bannergame{
+    height: 720px;
+  }
+  .bannergame button a{
+    padding: 8px 16px;
+    margin-bottom: 50px;
+  }
+  .window {
+    width: 90%;
+    padding: 15px 30px;
+  }
+  .window h1 {
+    font-size: 2em;
+  }
+  .window .description {
+    font-size: 1em;
+  }
+  .marquee-content span{
+    padding-left: 40px;
+  }
+  .marquee-content span:first-child {
+    padding-left: 0;
+  }
+}
+
+/* Estilos para tabletas */
+@media screen and (min-width: 481px) and (max-width: 769px) {
+  .bannergame.first {
+    height: 640px;
+  }
+  .bannergame{
+    height: 720px;
+  }
+  .bannergame button {
+    bottom: 15px;
+    padding: 10px 20px;
+  }
+  .window {
+    width: 70%;
+    padding: 18px 36px;
+  }
+  .window h1 {
+    font-size: 2.5em;
+  }
+  .window .description {
+    font-size: 1.1em;
+  }
+}
+
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+
+  .bannergame button a{
+    bottom: 10px;
+    padding: 8px 10px;
+
+  }
+  .bannergame button a{
+    font-size: 15px;
+  }
+  .window {
+    padding: 15px 30px;
+  }
+  .window h1 {
+    font-size: 2em;
+  }
+}
+
+/* Estilos para tabletas */
+@media screen and (min-width: 481px) and (max-width: 769px) {
+  .bannergame button {
+    bottom: 15px;
+    padding: 10px 20px;
+  }
+  .window {
+    padding: 18px 36px;
+  }
+  .window h1 {
+    font-size: 2.5em;
+  }
+}
+
+
+/* Página de wow */
+
+#wow{
+  background-color: rgba(176, 176, 176, 0.4);
+}
+.logo_game{
+  background-image: url(../img/WoW/banner-logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 230px;
+}
+.icon_game{
+  width: 400px;
+  height: 230px;
+  margin: 0 auto;
+  display: block;
+}
+.information_game{
+  position: relative;
+  background-image: url(../img/WoW/intro-1.webp);
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 450px;
+  padding-block: 20px;
+}
+.information_main{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.info_paragraph,
+.list_info{
+  color: #fff;
+  font-size: 1.4em;
+  width: 40%;
+  padding: 10px 20px;
+}
+.list_info{
+  list-style: none;
+  padding-top: 30px;
+}
+.list_info li strong{
+  color: #eabf10;
+}
+.features{
+padding-block: 30px;
+background: #C9CCD3;
+background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+background-blend-mode: lighten;
+}
+.contenedor{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+  padding-inline: 10px;
+}
+.caracteristica{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #b6b5b5de;
+  border-radius: 20px;
+  padding-bottom: 10px;
+}
+.caracteristica img{
+  width: 400px;
+  height: 250px;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+}
+.caracteristica_title{
+  margin-top: 10px;
+  color: #e94528;
+  font-size: 2em;
+  text-align: center;
+}
+.caracteristica p{
+  padding: 10px 20px;
+  font-size: 1.1em;
+  text-align: justify;
+}
+.galery{
+  background: #C9CCD3;
+  background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+  background-blend-mode: lighten;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 20px;
+}
+.galery h2,
+.siteweb h2,
+.questions h2{
+  font-size: 3em;
+  padding-bottom: 20px;
+  color: #e94528;
+}
+.carrusel{
+  display: flex;
+  width: 1000px;
+  height: 700px;
+}
+.carrusel img{
+  width: 0;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .7;
+  transition: .5s ease;
+  filter: grayscale(1.1);
+}
+.carrusel img:hover{
+  cursor: crosshair;
+  width: 350px;
+  opacity: 1;
+  filter: contrast(120%);
+}
+.siteweb{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.questions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+details{
+  width: 700px;
+  margin: 10px;
+  background-color: #8d8d8d;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+summary{
+  list-style: none;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+}
+summary::before{
+  content: '+';
+  padding-right: 10px;
+}
+details[open] summary::before{
+  content: '-';
+}
+.hidden p{
+  padding: 10px 20px;
+  font-size: 18px;
+  color: rgb(248, 248, 248);
+}
+
+/* Pagina de overwatch */
+
+#Overwatch .logo_game{
+  background-image: url(../img/Overwatch-2/banner-logo.avif);
+}
+#Overwatch .information_game{
+  background-image: url(../img/Overwatch-2/intro-1.jpeg);
+}
+#Overwatch .information_main{
+  align-items: flex-start;
+}
+#Overwatch .info_paragraph,
+#Overwatch .list_info{
+  width: 50%;
+}
+
+#Overwatch .galery h2,
+#Overwatch .siteweb h2,
+#Overwatch .questions h2{
+  font-size: 3em;
+  padding-bottom: 20px;
+  color: #09f;
+}
+#Overwatch .caracteristica_title{
+  color: rgb(7, 71, 114);
+}
+
+/* Pagina de GTA 5 */
+
+#GTA .logo_game{
+  background-image: url(../img/GTA5/banner-logo.jpg_large);
+}
+#GTA .information_game {
+  background: linear-gradient(to left, #191919 10%, rgba(25, 25, 25, 0.2)), url('../img/GTA5/banner.webp');
+  background-size: cover;
+}
+#GTA .info_paragraph,
+#GTA .list_info{
+  width: 50%;
+}
+
+#GTA .galery h2,
+#GTA .siteweb h2,
+#GTA .questions h2{
+  font-size: 3em;
+  padding-bottom: 20px;
+  color: rgb(0, 113, 28);
+}
+#GTA .caracteristica_title{
+  color: rgb(7, 114, 64);
+}
+
+/* Página de lEAGUE OF LEGENDS */
+#League .logo_game{
+  background-image: url(../img/LeagueLegends/banner.jpeg);
+} 
+#League .information_game {
+  background: linear-gradient(to right, #191919 30%, rgba(25, 25, 25, 0.2)), url('../img/LeagueLegends/intro-1.jpg');
+  background-size: cover;
+}
+#League .information_main{
+  align-items: flex-start;
+}
+#League .info_paragraph,
+#League .list_info{
+  width: 50%;
+}
+
+#League .galery h2,
+#League .siteweb h2,
+#League .questions h2{
+  font-size: 3em;
+  padding-bottom: 20px;
+  color: rgb(33, 7, 128);
+}
+#League .caracteristica_title{
+  color: rgb(10, 3, 67);
+}
+
+@media screen and (max-width: 480px){
+  /* Pagina de wow */
+  .logo_game{
+    height: 160px;
+  }
+  .icon_game{
+    width: 300px;
+    height: 160px;
+  }
+  .information_game{
+    background-image: linear-gradient(to right, #191919 0%, rgba(25, 25, 25, 0.2)), url(../img/WoW/intro-1.webp);
+    height: auto;
+  }
+  #Overwatch .information_game{
+    background-image: linear-gradient(to left, #191919 0%, rgba(25, 25, 25, 0.2)), url(../img/Overwatch-2/intro-1.jpeg);
+    height: auto;
+  }
+  .information_main{
+    align-items: center;
+  }
+  .info_paragraph,
+  .list_info{
+  width: 100% !important;
+  font-size: 0.9em !important;
+  }
+  .contenedor{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .caracteristica,
+  .caracteristica img{
+    width: 350px;
+  }
+  .caracteristica_title{
+    font-size: 1.5em;
+  }
+  .caracteristica p{
+    font-size: 1em;
+  }
+  .galery h2,
+  .siteweb h2,
+  .questions h2{
+    font-size: 2em !important;
+  }
+  .carrusel {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .carrusel img {
+    width: 320px;
+    display: block;
+    margin: 0 auto;
+    opacity: 1; 
+    filter: none;
+    transition: none; 
+    padding-bottom: 20px;
+  }
+  .carrusel img:hover {
+    cursor: auto; 
+    filter: none;
+    width: 320px;
+  }
+  iframe{
+    width: 320px;
+    height: 200px;
+  }
+  .questions {
+    margin-bottom: 20px;
+  }
+  details {
+    width: 90%; 
+    margin: 10px auto; 
+  }
+  summary {
+    font-size: 18px;
+  }
+  summary::before {
+    padding-right: 5px;
+  }
+  details[open] summary::before {
+    content: '-'; 
+  }
+  .hidden p {
+    font-size: 16px; 
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 769px){
+  .information_game{
+    background-image: linear-gradient(to right, #191919 0%, rgba(25, 25, 25, 0.2)), url(../img/WoW/intro-1.webp);
+    height: auto;
+  }
+  #Overwatch .information_game{
+    background-image: linear-gradient(to left, #191919 0%, rgba(25, 25, 25, 0.2)), url(../img/Overwatch-2/intro-1.jpeg);
+    height: auto;
+  }
+  .information_main{
+    align-items: center;
+  }
+  .info_paragraph,
+  .list_info{
+  width: 100% !important;
+  font-size: 1.1em !important;
+  }
+  .contenedor{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .caracteristica,
+  .caracteristica img{
+    width: 450px;
+  }
+  .galery h2,
+  .siteweb h2,
+  .questions h2{
+    font-size: 2.5em !important;
+  }
+
+  .carrusel {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .carrusel img {
+    width: 180px;
+    padding: 20px;
+    opacity: 1; 
+    filter: none;
+    transition: none; 
+    padding-bottom: 20px;
+  }
+  .carrusel img:hover {
+    cursor: auto; 
+    filter: none;
+    width: 180px;
+  }
+
+  iframe{
+    width: 500px;
+    height: 290px;
+  }
+  .questions {
+    margin-bottom: 20px;
+  }
+  details {
+    width: 90%; 
+    margin: 10px auto; 
+  }
+  summary {
+    font-size: 18px;
+  }
+  summary::before {
+    padding-right: 5px;
+  }
+  details[open] summary::before {
+    content: '-'; 
+  }
+  .hidden p {
+    font-size: 16px; 
+  }
+}
+/* Social networks  */
+
+footer{
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 15px #00000027;
+}
+.social-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px 10px;
+}
+.copyright p{
+  font-size: 19px;
+}
+.networks{
+  display: flex;
+}
+.social-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px #00000027;
+  transition: 0.3s;
+}
+.social-button:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 6px 3px #00000027;
+}
+
+.social-buttons svg {
+  transition: 0.3s;
+  height: 20px;
+}
+.facebook {
+  background-color: #3b5998;
+}
+.facebook svg {
+  fill: #f2f2f2;
+}
+.facebook:hover svg {
+  fill: #3b5998;
+}
+.github {
+  background-color: #333;
+}
+.github svg {
+  width: 25px;
+  height: 25px;
+  fill: #f2f2f2;
+}
+.github:hover svg {
+  fill: #333;
+}
+.linkedin {
+  background-color: #0077b5;
+}
+.linkedin svg {
+  fill: #f2f2f2;
+}
+.linkedin:hover svg {
+  fill: #0077b5;
+}
+.instagram {
+  background-color: #c13584;
+}
+.instagram svg {
+  fill: #f2f2f2;
+}
+.instagram:hover svg {
+  fill: #c13584;
+}
+
+
+@media screen and (max-width: 480px){
+  /* Header responsive movil */
+  .header{
+    height: 70px;
+  }
+  .logo-title{
+    font-size: 25px;
+    margin-left: -15px;
+  }
+  .logo img{
+    margin-left: -20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  nav {
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #191919;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 1px solid #ffffff;
+  }
+  nav.active {
+    display: flex;
+  }
+  .list {
+    flex-direction: column;
+    gap: 0;
+  }
+  .item-list a:hover::before {
+    width: 0;
+  }
+  .item-list a:hover {
+    color: #fff;
+    background-color: #f39c12; 
+    transform: scale(1.03);
+  }
+
+  /* Footer responsive Movil */
+  .social-buttons{
+    display: grid;
+    justify-items: center;
+  }
+  .copyright p{
+    font-size: 20px;
+    text-align: center;
+  }
+  .copyright p > span{
+    display: none;
+  }
+  .social-button{
+    margin-top: 10px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Media querie para IPADS grandes */
+@media screen and (min-width: 750px) and (max-width: 1024px){
+  /* Header responsive IPAD Mini*/
+  .logo-title{
+    font-size: 25px;
+    margin-left: -15px;
+  }
+  .logo img{
+    margin-left: -20px;
+  }
+  .header nav{
+    margin-right: 0;
+  }
+  .list{
+    gap: 5px;
+  }
+  .item-list a{
+    font-size: 13px;
+    padding-inline: 10px;
+  }
+  .item-list a:hover { 
+    transform: scale(1.05);
+  }
+  /* Footer responsive IPAD */
+  .social-button{
+    width: 32px;
+    height: 32px;
+  }
+  .copyright p{
+    font-size: 18px;
+    text-align: center;
+  }
+  .copyright p > span{
+    display: none;
+  }
+}
+@media screen and (min-width: 520px) and (max-width: 750px){
+  .logo-title{
+    font-size: 25px;
+    margin-left: -15px;
+  }
+  .logo img{
+    margin-left: -20px;
+  }
+  .header nav{
+    margin-right: 0;
+  }
+  .list{
+    gap: 5px;
+  }
+  .item-list a{
+    font-size: 13px;
+    padding-inline: 10px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  nav {
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #191919;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-top: 1px solid #ffffff;
+  }
+  nav.active {
+    display: flex;
+  }
+  .list {
+    flex-direction: column;
+    gap: 0;
+  }
+  .item-list a{
+    text-align: center;
+  }
+  .item-list a:hover::before {
+    width: 0;
+  }
+  .item-list a:hover {
+    color: #fff;
+    background-color: #f39c12; 
+    transform: scale(1.08);
+  }
+  /* Footer responsive IPAD */
+  .social-button{
+    width: 32px;
+    height: 32px;
+  }
+  .copyright p{
+    font-size: 18px;
+    text-align: center;
+  }
+  .copyright p > span{
+    display: none;
+  }
+}
